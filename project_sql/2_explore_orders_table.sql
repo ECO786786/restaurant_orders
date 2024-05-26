@@ -14,16 +14,23 @@ Question two:
 How many orders were made within this date range? How many items were ordered within this date range?
 */
 
+-- How many orders were made within this date range?
+
 SELECT COUNT(*) AS how_many_orders
-FROM restaurant_db.order_details
-WHERE order_date BETWEEN '2023-01-01' AND '2023-03-31';
+FROM restaurant_db.order_details;
+
+-- How many items were ordered within this date range?
+SELECT COUNT(DISTINCT order_id) 
+FROM restaurant_db.order_details;
+
+
 
 /*
 Question three:
 Which orders had the most number of items?
 */
 
-SELECT order_id, COUNT(item_id) AS items 
+SELECT order_id, COUNT(item_id) AS num_items 
 FROM restaurant_db.order_details
 GROUP BY order_id
 ORDER BY order_id ASC;
@@ -33,7 +40,7 @@ Question four:
 How many orders had more than 12 items?
 */
 
-SELECT order_id, COUNT(item_id) AS items 
+SELECT order_id, COUNT(item_id) AS num_items 
 FROM restaurant_db.order_details
 GROUP BY order_id
 HAVING COUNT(item_id) > 12
