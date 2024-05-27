@@ -24,7 +24,6 @@ SELECT COUNT(DISTINCT order_id)
 FROM restaurant_db.order_details;
 
 
-
 /*
 Question three:
 Which orders had the most number of items?
