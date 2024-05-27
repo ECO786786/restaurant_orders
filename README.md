@@ -1,6 +1,7 @@
 # Introduction
 
-📊 Restaurant Order Analysis
+📊 Restaurant Order Analysis.
+
 This analysis aims to uncover patterns in customer behavior through examining order data.
 
 🔍 For access to SQL queries, kindly refer to the following location: [project_sql folder](/project_sql/)
