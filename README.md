@@ -62,3 +62,29 @@ _Table of least ordered items_
 | Hamburgers | American | 622     |
 
 _Table of most ordered items_
+
+### 2. What were the top 5 orders that spent the most money?
+
+```sql
+SELECT order_id, SUM(price) AS total_spend
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY order_id
+ORDER BY sum(price) DESC
+LIMIT 5;
+```
+
+To identify the top 5 highest spending orders, we use the GROUP BY statement on order_id and apply the SUM function on the price to calculate the total amount spent for each order.
+
+From the results, we find that orders 440, 2075, 1957, 330, and 2675 are the highest paying orders.
+
+| order_id | total_spend |
+| -------- | ----------- |
+| 440      | 192.15      |
+| 2075     | 191.05      |
+| 1957     | 190.10      |
+| 330      | 189.70      |
+| 2675     | 185.10      |
+
+_Table of top 5 highest spending orders_
