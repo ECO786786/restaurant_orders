@@ -88,3 +88,27 @@ From the results, we find that orders 440, 2075, 1957, 330, and 2675 are the hig
 | 2675     | 185.10      |
 
 _Table of top 5 highest spending orders_
+
+### 3. View the details of the highest spend order. Which specific items were purchased?
+
+```sql
+SELECT category, COUNT(item_id) AS num_items
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+WHERE order_id = 440
+GROUP BY category;
+```
+
+From the previous analysis, we identified the top 5 highest spending orders, with order 440 at the top. To examine the details of order 440, we use it as a filter. We then apply the GROUP BY statement on order_id and use the COUNT function on item_id to determine the specific items purchased.
+
+The results show that order 440 included 8 Italian items, and 2 items each from the American, Asian, and Mexican categories.
+
+| category | num_items |
+| -------- | --------- |
+| American | 2         |
+| Asian    | 2         |
+| Italian  | 8         |
+| Mexican  | 2         |
+
+_Table of specific items were purchased_
