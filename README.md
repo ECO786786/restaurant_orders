@@ -22,3 +22,43 @@ This data comes from [Maven Analytics](https://app.mavenanalytics.io/guided-proj
 - **PostgreSQL:** The chosen database management system.
 - **Visual Studio Code:** My go-to for database management and executing SQL queries.
 - **Git & GitHub:** Essential for version control and sharing my SQL scripts and analysis, ensuring collaboration and project tracking.
+
+# The Analysis
+
+### 1. What were the least and most ordered items? What categories were they in?
+
+```sql
+SELECT item_name, category, COUNT(order_details_id) AS number_purchases
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY item_name, category
+ORDER BY number_purchases ASC
+LIMIT 1;
+```
+
+```sql
+SELECT item_name, category, COUNT(order_details_id) AS number_purchases
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY item_name, category
+ORDER BY number_purchases DESC
+LIMIT 1;
+```
+
+To identify the least and most ordered items, we use the GROUP BY statement on item_name and category, and count the frequency of each order using the count function on order_details_id.
+
+From the results, we see that Chicken Tacos (Mexican category) is the least ordered item with 123 orders in the past three months. Conversely, Hamburgers (American category) are the most ordered item with 622 orders.
+
+| item_name     | category | item_id |
+| ------------- | -------- | ------- |
+| Chicken Tacos | Mexican  | 123     |
+
+_Table of least ordered items_
+
+| item_name  | category | item_id |
+| ---------- | -------- | ------- |
+| Hamburgers | American | 622     |
+
+_Table of most ordered items_
