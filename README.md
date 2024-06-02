@@ -13,6 +13,11 @@ This data comes from [Maven Analytics](https://app.mavenanalytics.io/guided-proj
 ![ER Diagram](assets/restaurant_project.png)
 _ER Diagram_
 
+```sql
+ALTER TABLE restaurant_db.order_details
+ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
+```
+
 ### The questions I wanted to answer through my SQL queries were:
 
 1. What were the least and most ordered items? What categories were they in?
@@ -123,3 +128,12 @@ The results show that order 440 included 8 Italian items, and 2 items each from 
 _Table of specific items were purchased_
 
 ### How do sales vary by month?
+
+```sql
+SELECT EXTRACT(MONTH FROM order_date) AS month, SUM(price) AS total_sales
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY month
+ORDER BY total_sales DESC;
+```
