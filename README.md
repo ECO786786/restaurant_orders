@@ -10,6 +10,8 @@ This analysis aims to uncover patterns in customer behavior through examining or
 
 This data comes from [Maven Analytics](https://app.mavenanalytics.io/guided-projects/d7167b45-6317-49c9-b2bb-42e2a9e9c0bc).
 
+![ERD Diagram](assets/restaurant_project.png)
+
 ### The questions I wanted to answer through my SQL queries were:
 
 1. What were the least and most ordered items? What categories were they in?
