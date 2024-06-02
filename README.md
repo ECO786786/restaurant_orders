@@ -51,15 +51,15 @@ To identify the least and most ordered items, we use the GROUP BY statement on i
 
 From the results, we see that Chicken Tacos (Mexican category) is the least ordered item with 123 orders in the past three months. Conversely, Hamburgers (American category) are the most ordered item with 622 orders.
 
-| item_name     | category | item_id |
-| ------------- | -------- | ------- |
-| Chicken Tacos | Mexican  | 123     |
+| item_name     | category | number_purchases |
+| ------------- | -------- | ---------------- |
+| Chicken Tacos | Mexican  | 123              |
 
 _Table of least ordered items_
 
-| item_name  | category | item_id |
-| ---------- | -------- | ------- |
-| Hamburgers | American | 622     |
+| item_name  | category | number_purchases |
+| ---------- | -------- | ---------------- |
+| Hamburgers | American | 622              |
 
 _Table of most ordered items_
 
