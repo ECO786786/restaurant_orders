@@ -15,6 +15,12 @@ This data comes from [Maven Analytics](https://app.mavenanalytics.io/guided-proj
 1. What were the least and most ordered items? What categories were they in?
 2. What were the top 5 orders that spent the most money?
 3. View the details of the highest spend order. Which specific items were purchased?
+4. How do sales vary by month?
+5. What times of day have the highest sales?
+6. What is the average value of an order over a specific month?
+7. How often do customers place orders in a month?
+8. Which menu items generate the most revenue?
+9. What are the top 10 best-selling menu items?
 
 # Tools I Used
 
@@ -112,3 +118,5 @@ The results show that order 440 included 8 Italian items, and 2 items each from 
 | Mexican  | 2         |
 
 _Table of specific items were purchased_
+
+### How do sales vary by month?
