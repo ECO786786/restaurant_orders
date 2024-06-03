@@ -100,3 +100,10 @@ GROUP BY order_id,category;
 /*
 From the previous analysis, we identified the top 5 highest spending orders: 440, 2075, 1957, 330, and 2675. This query provides detailed information on their spending.
 */
+
+SELECT EXTRACT(MONTH FROM order_date) AS month, SUM(price) AS total_sales
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY month
+ORDER BY total_sales DESC;

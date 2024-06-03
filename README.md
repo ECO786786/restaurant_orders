@@ -137,3 +137,9 @@ ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
 GROUP BY month
 ORDER BY total_sales DESC;
 ```
+
+| month | total_sales |
+| ----- | ----------- |
+| 3     | 54610.60    |
+| 1     | 53816.95    |
+| 2     | 50790.35    |
