@@ -29,6 +29,8 @@ ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
 7. How often do customers place orders in a month?
 8. Which menu items generate the most revenue?
 9. What are the top 10 best-selling menu items?
+10. What was the most popular item of each month?
+11. What are the average sales per month?
 
 # Tools I Used
 
@@ -143,3 +145,9 @@ ORDER BY total_sales DESC;
 | 3     | 54610.60    |
 | 1     | 53816.95    |
 | 2     | 50790.35    |
+
+_Table of total sales per month_
+
+To determine the total sales for each month, we first extract the month from the order date and update the column accordingly. We then use the sum function on the price column to calculate the total sales, grouping the data by month. Finally, we order the table by total sales.
+
+In the results, the months are represented numerically: 1 for January, 2 for February, and 3 for March. The highest sales were recorded in March, totaling $54,610.60, followed by January with $53,816.95, and February with $50,790.35.
