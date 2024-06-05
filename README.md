@@ -151,3 +151,32 @@ _Table of total sales per month_
 To determine the total sales for each month, we first extract the month from the order date and update the column accordingly. We then use the sum function on the price column to calculate the total sales, grouping the data by month. Finally, we order the table by total sales.
 
 In the results, the months are represented numerically: 1 for January, 2 for February, and 3 for March. The highest sales were recorded in March, totaling $54,610.60, followed by January with $53,816.95, and February with $50,790.35.
+
+### What times of day have the highest sales?
+
+```sql
+SELECT order_time, SUM(price) AS total_sales
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY order_time
+ORDER BY total_sales DESC
+LIMIT 10;
+```
+
+| Order Time | Total Sales |
+| ---------- | ----------- |
+| 13:13:33   | 229.05      |
+| 12:07:16   | 224.50      |
+| 11:49:01   | 208.60      |
+| 12:24:36   | 203.05      |
+| 13:58:44   | 198.70      |
+| 14:00:05   | 193.00      |
+| 12:16:34   | 192.15      |
+| 14:03:04   | 191.05      |
+| 14:50:01   | 190.10      |
+| 13:27:11   | 189.70      |
+
+_Table of order times and their sales_
+
+To determine the times of day with the highest sales, we first need to select the order time and use the sum function to aggregate the total sales, grouping by order time and ordering the results in descending order of total sales. From the results, we can see that 13:13 is the time with the highest sales, which usually falls within the lunch period.

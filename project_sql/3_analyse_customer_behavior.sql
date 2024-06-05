@@ -107,3 +107,11 @@ INNER JOIN restaurant_db.menu_items
 ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
 GROUP BY month
 ORDER BY total_sales DESC;
+
+SELECT order_time, SUM(price) AS total_sales
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY order_time
+ORDER BY total_sales DESC
+LIMIT 10;
