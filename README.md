@@ -13,11 +13,6 @@ This data comes from [Maven Analytics](https://app.mavenanalytics.io/guided-proj
 ![ER Diagram](assets/restaurant_project.png)
 _ER Diagram_
 
-```sql
-ALTER TABLE restaurant_db.order_details
-ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
-```
-
 ### The questions I wanted to answer through my SQL queries were:
 
 1. What were the least and most ordered items? What categories were they in?
@@ -319,13 +314,18 @@ Overall, the analysis reveals a strong initial preference for Edamame, which dom
 
 # What I Learned
 
-Throughout this project, I have lernt a few important topics.
+Throughout this project, I have learned several important topics.
 
-- **🧩 Complex Query Crafting:** Mastered the art of advanced SQL, merging tables like a pro and wielding WITH clauses for ninja-level temp table maneuvers.
-- **📊 Data Aggregation:** Got cozy with GROUP BY and turned aggregate functions like COUNT() and AVG() into my data-summarizing sidekicks.
+- **🧩 Applying Complex Queries:** Utilised Common Table Expressions (CTEs) with window functions and ranking.
+- **📊 Modifying the Table Structure:** Initially, the tables were not connected. I altered the order_details table by adding a foreign key on the item_id. This enabled the creation of more complex queries, leading to more insightful results.
+
+```sql
+ALTER TABLE restaurant_db.order_details
+ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
+```
 
 # Conclusions
 
 ### Insights
 
-From the analysis, several general insights emerged:
+The analysis highlights hamburgers as the top-selling item and Chicken Tacos as the least ordered. High-spending orders feature a diverse range of cuisines. March sees peak sales, particularly at lunchtime. Average order value remains consistent. Insights inform menu adjustments and promotional strategies for improved sales and customer satisfaction.
