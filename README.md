@@ -27,10 +27,9 @@ ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
 5. What times of day have the highest sales?
 6. What is the average value of an order over a specific month?
 7. How often do customers place orders in a month?
-8. Which menu items generate the most revenue?
-9. What are the top 10 best-selling menu items?
-10. What was the most popular item of each month?
-11. What are the average sales per month?
+8. What are the top 10 best-selling menu items?
+9. What was the most popular item of each month?
+10. What are the average sales per month?
 
 # Tools I Used
 
@@ -201,3 +200,65 @@ ORDER BY average_order DESC;
 _Table of the average value of an order for each month_
 
 To determine the average value of an order over the months, we need to extract the month from the order date and rename the column as "month." Then, we use the average function on the price, rounding it to two decimal places to obtain the average order price. We group the data by month and order it by the average order price. From the results, we can see that the average order price per month is relatively consistent, hovering around the $13 mark with only a few cents difference between them.
+
+### How often do customers place orders in a month?
+
+```sql
+SELECT EXTRACT(MONTH FROM order_date) AS month, COUNT(*) AS how_many_orders
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY month
+ORDER BY how_many_orders DESC;
+```
+
+| month | number_of_orders |
+| ----- | ---------------- |
+| 3     | 4142             |
+| 1     | 4104             |
+| 2     | 3851             |
+
+_Table of how often customers place orders each month_
+
+To determine how often customers place orders, we need to extract the month from the order date and rename the column as "month." Then, we count all rows in the table, representing all orders, and group the data by month, ordering it by the number of orders in descending order. From the results, we see that March had the most orders with 4,142, followed by January with 4,104, and February with 3,851.
+
+### What are the top 10 best-selling menu items?
+
+```sql
+SELECT item_name, category, COUNT(order_details_id) AS number_purchases
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY item_name, category
+ORDER BY number_purchases DESC
+LIMIT 10;
+```
+
+| item_name             | category | number_of_purchases |
+| --------------------- | -------- | ------------------- |
+| Hamburger             | American | 622                 |
+| Edamame               | Asian    | 620                 |
+| Korean Beef Bowl      | Asian    | 588                 |
+| Cheeseburger          | American | 583                 |
+| French Fries          | American | 571                 |
+| Tofu Pad Thai         | Asian    | 562                 |
+| Steak Torta           | Mexican  | 489                 |
+| Spaghetti & Meatballs | Italian  | 470                 |
+| Mac & Cheese          | American | 463                 |
+| Chips & Salsa         | Mexican  | 461                 |
+
+The following analysis presents the top 10 best-selling menu items at the restaurant, categorised by their respective cuisine type. The data was obtained using a SQL query that joins the order_details and menu_items tables, groups the results by item name and category, and orders them by the number of purchases in descending order.
+
+American Cuisine Dominates:
+
+The top-selling item is the Hamburger, with 622 purchases.
+American cuisine has four items in the top 10: Hamburger, Cheeseburger, French Fries, and Mac & Cheese.
+The combined purchases for American items total 2,239, indicating strong customer preference for American dishes.
+
+Asian Cuisine Popularity:
+
+Edamame and Korean Beef Bowl are the second and third best-selling items, with 620 and 588 purchases, respectively.
+Tofu Pad Thai also makes the list, bringing the total purchases for Asian cuisine items to 1,770.
+This highlights a significant interest in Asian cuisine among customers.
+
+Overall, the data shows a strong preference for American and Asian cuisines among customers, with Mexican and Italian dishes also being popular choices. The variety in the top-selling items suggests a broad appeal across different types of cuisine.
