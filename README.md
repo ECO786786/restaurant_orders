@@ -29,7 +29,6 @@ ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
 7. How often do customers place orders in a month?
 8. What are the top 10 best-selling menu items?
 9. What was the most popular item of each month?
-10. What are the average sales per month?
 
 # Tools I Used
 
@@ -247,6 +246,8 @@ LIMIT 10;
 | Mac & Cheese          | American | 463                 |
 | Chips & Salsa         | Mexican  | 461                 |
 
+_Table of top 10 best-selling menu items_
+
 The following analysis presents the top 10 best-selling menu items at the restaurant, categorised by their respective cuisine type. The data was obtained using a SQL query that joins the order_details and menu_items tables, groups the results by item name and category, and orders them by the number of purchases in descending order.
 
 American Cuisine Dominates:
@@ -262,3 +263,69 @@ Tofu Pad Thai also makes the list, bringing the total purchases for Asian cuisin
 This highlights a significant interest in Asian cuisine among customers.
 
 Overall, the data shows a strong preference for American and Asian cuisines among customers, with Mexican and Italian dishes also being popular choices. The variety in the top-selling items suggests a broad appeal across different types of cuisine.
+
+### What was the most popular item of each month?
+
+```sql
+WITH MonthlyPurchases AS (
+    SELECT
+        EXTRACT(MONTH FROM od.order_date) AS month,
+        mi.item_name,
+        COUNT(od.order_details_id) AS number_purchases,
+        ROW_NUMBER() OVER (PARTITION BY EXTRACT(MONTH FROM od.order_date) ORDER BY COUNT(od.order_details_id) DESC) AS row_num
+    FROM
+        restaurant_db.order_details od
+    INNER JOIN
+        restaurant_db.menu_items mi
+    ON
+        od.item_id = mi.menu_item_id
+    GROUP BY
+        month, mi.item_name
+)
+SELECT
+    month,
+    item_name,
+    number_purchases
+FROM
+    MonthlyPurchases
+WHERE
+    row_num = 1
+ORDER BY
+    month;
+```
+
+| month | item_name | number_purchases |
+| ----- | --------- | ---------------- |
+| 1     | Edamame   | 235              |
+| 2     | Edamame   | 201              |
+| 3     | Hamburger | 229              |
+
+_Table of the most popular item of each month_
+
+The following analysis presents the most popular menu items for the first three months at the restaurant, identified using a SQL query that calculates monthly purchases and ranks the items by the number of purchases in descending order.
+
+Findings:
+
+January:
+Edamame Dominance: Edamame was the most popular item with 235 purchases. This indicates a strong preference for this Asian appetizer among customers at the start of the year.
+
+February:
+Continued Popularity of Edamame: Edamame remained the top choice with 201 purchases, though slightly fewer than in January. This consistency suggests sustained customer interest in this item.
+
+March:
+Shift to Hamburger: In March, Hamburger became the most popular item with 229 purchases, marking a significant shift from the previous months. This could indicate a change in customer preferences, possibly influenced by seasonal factors or targeted promotions.
+
+Overall, the analysis reveals a strong initial preference for Edamame, which dominated sales in the first two months. However, in March, there was a notable shift towards the Hamburger, reflecting a change in customer preferences or successful promotional efforts by the restaurant. This trend could also indicate that at the beginning of the year, people may participate in New Year goals, such as eating healthier. Edamame is high in vitamin A and beneficial for inflammation because it contains choline, a nutrient related to B vitamins. This health benefit likely supports a healthy lifestyle and is reflected in the number of purchases. With this information, we can tailor the menu to include more healthy items to boost sales.
+
+# What I Learned
+
+Throughout this project, I have lernt a few important topics.
+
+- **🧩 Complex Query Crafting:** Mastered the art of advanced SQL, merging tables like a pro and wielding WITH clauses for ninja-level temp table maneuvers.
+- **📊 Data Aggregation:** Got cozy with GROUP BY and turned aggregate functions like COUNT() and AVG() into my data-summarizing sidekicks.
+
+# Conclusions
+
+### Insights
+
+From the analysis, several general insights emerged:
