@@ -108,10 +108,10 @@ ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
 GROUP BY month
 ORDER BY total_sales DESC;
 
-SELECT order_time, SUM(price) AS total_sales
+
+SELECT EXTRACT(MONTH FROM order_date) AS month, ROUND(AVG(price),2) AS average_order
 FROM restaurant_db.order_details
 INNER JOIN restaurant_db.menu_items
 ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
-GROUP BY order_time
-ORDER BY total_sales DESC
-LIMIT 10;
+GROUP BY month
+ORDER BY average_order DESC;

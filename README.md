@@ -164,7 +164,7 @@ ORDER BY total_sales DESC
 LIMIT 10;
 ```
 
-| Order Time | Total Sales |
+| order_time | total_sales |
 | ---------- | ----------- |
 | 13:13:33   | 229.05      |
 | 12:07:16   | 224.50      |
@@ -180,3 +180,24 @@ LIMIT 10;
 _Table of order times and their sales_
 
 To determine the times of day with the highest sales, we first need to select the order time and use the sum function to aggregate the total sales, grouping by order time and ordering the results in descending order of total sales. From the results, we can see that 13:13 is the time with the highest sales, which usually falls within the lunch period.
+
+### What is the average value of an order over a specific month?
+
+```sql
+SELECT EXTRACT(MONTH FROM order_date) AS month, ROUND(AVG(price),2) AS average_order
+FROM restaurant_db.order_details
+INNER JOIN restaurant_db.menu_items
+ON restaurant_db.order_details.item_id = restaurant_db.menu_items.menu_item_id
+GROUP BY month
+ORDER BY average_order DESC;
+```
+
+| month | average_order |
+| ----- | ------------- |
+| 2     | 13.19         |
+| 3     | 13.18         |
+| 1     | 13.11         |
+
+_Table of the average value of an order for each month_
+
+To determine the average value of an order over the months, we need to extract the month from the order date and rename the column as "month." Then, we use the average function on the price, rounding it to two decimal places to obtain the average order price. We group the data by month and order it by the average order price. From the results, we can see that the average order price per month is relatively consistent, hovering around the $13 mark with only a few cents difference between them.
