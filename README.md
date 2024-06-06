@@ -262,7 +262,7 @@ Overall, the data shows a strong preference for American and Asian cuisines amon
 ### What was the most popular item of each month?
 
 ```sql
-WITH MonthlyPurchases AS (
+WITH monthly_purchases AS (
     SELECT
         EXTRACT(MONTH FROM od.order_date) AS month,
         mi.item_name,
@@ -282,7 +282,7 @@ SELECT
     item_name,
     number_purchases
 FROM
-    MonthlyPurchases
+    monthly_purchases
 WHERE
     row_num = 1
 ORDER BY
