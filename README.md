@@ -2,7 +2,7 @@
 
 📊 Restaurant Order Analysis.
 
-This analysis aims to uncover patterns in customer behavior through examining order data.
+This analysis aims to uncover patterns in customer behaviour through examining order data.
 
 🔍 For access to SQL queries, kindly refer to the following location: [project_sql folder](/project_sql/)
 
@@ -245,13 +245,13 @@ _Table of top 10 best-selling menu items_
 
 The following analysis presents the top 10 best-selling menu items at the restaurant, categorised by their respective cuisine type. The data was obtained using a SQL query that joins the order_details and menu_items tables, groups the results by item name and category, and orders them by the number of purchases in descending order.
 
-American Cuisine Dominates:
+## American Cuisine Dominates:
 
 The top-selling item is the Hamburger, with 622 purchases.
 American cuisine has four items in the top 10: Hamburger, Cheeseburger, French Fries, and Mac & Cheese.
 The combined purchases for American items total 2,239, indicating strong customer preference for American dishes.
 
-Asian Cuisine Popularity:
+## Asian Cuisine Popularity:
 
 Edamame and Korean Beef Bowl are the second and third best-selling items, with 620 and 588 purchases, respectively.
 Tofu Pad Thai also makes the list, bringing the total purchases for Asian cuisine items to 1,770.
@@ -299,7 +299,7 @@ _Table of the most popular item of each month_
 
 The following analysis presents the most popular menu items for the first three months at the restaurant, identified using a SQL query that calculates monthly purchases and ranks the items by the number of purchases in descending order.
 
-Findings:
+## Findings:
 
 January:
 Edamame Dominance: Edamame was the most popular item with 235 purchases. This indicates a strong preference for this Asian appetizer among customers at the start of the year.
@@ -325,7 +325,5 @@ ADD FOREIGN KEY (item_id) REFERENCES restaurant_db.menu_items(menu_item_id);
 ```
 
 # Conclusions
-
-### Insights
 
 The analysis highlights hamburgers as the top-selling item and Chicken Tacos as the least ordered. High-spending orders feature a diverse range of cuisines. March sees peak sales, particularly at lunchtime. Average order value remains consistent. Insights inform menu adjustments and promotional strategies for improved sales and customer satisfaction.
