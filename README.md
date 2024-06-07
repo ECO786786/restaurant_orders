@@ -122,18 +122,18 @@ _Table of specific items were purchased_
 
 To gain a deeper understanding of the highest spending order, identified previously as order 440 with a total spend of $192.15, an SQL query was performed to categorise the items purchased within this order. The results provide a breakdown of the specific items ordered by their category.
 
-# Dominance of Italian Cuisine:
+#### Dominance of Italian Cuisine:
 
 The order included a significant number of Italian items (8), indicating a strong preference for Italian cuisine in this particular high value order. This could suggest that the Italian menu items are either well loved by customers or are perceived as special items worth purchasing in bulk.
 
-# Diverse Cuisine Preferences:
+#### Diverse Cuisine Preferences:
 
 Besides Italian, the order also included items from American, Asian, and Mexican categories (2 items each). This indicates a preference for a diverse culinary experience, perhaps catering to a group with varied tastes.
 Menu Insights:
 
 The high quantity of Italian items ordered can provide insight into popular dishes within this category. It could be beneficial to identify which specific Italian dishes were ordered and promote them as part of special offers or highlight them on the menu.
 
-# Customer Behavior:
+#### Customer Behavior:
 
 The diversity in the order suggests that customers appreciate variety. Offering combo deals that include items from multiple categories or themed multi-cuisine dining experiences could appeal to similar high-spending customers.
 
@@ -158,11 +158,11 @@ _Table of total sales per month_
 
 To analyse how sales vary by month, an SQL query was executed to extract the month from the order dates and calculate the total sales for each month. The data is grouped by month and ordered by total sales in descending order.
 
-# Highest Sales in March:
+#### Highest Sales in March:
 
 March recorded the highest sales with a total of $54,610.60. This could be attributed to various factors such as seasonal promotions, special events, or holidays that typically occur in March, which drive higher customer traffic and spending.
 
-# Strong Start in January:
+#### Strong Start in January:
 
 January also showed strong sales with a total of $53,816.95. The beginning of the year might see increased dining out as people celebrate the New Year or take advantage of post-holiday promotions.
 Steady Sales in February:
@@ -198,7 +198,7 @@ _Table of order times and their sales_
 
 To understand the times of day with the highest sales, an SQL query was executed to group the total sales by order time. The data was sorted in descending order to identify the top 10 times with the highest sales.
 
-# Peak Lunch Hours:
+#### Peak Lunch Hours:
 
 The highest sales are observed around lunchtime, specifically between 11:49 AM and 2:50 PM. This period shows significant sales activity, indicating that lunch is a crucial time for the restaurant's revenue.
 The top time slot, 13:13:33 (1:13 PM), generated the highest sales of $229.05.
@@ -209,19 +209,19 @@ Afternoon Sales:
 
 Times just after the peak lunch hours, such as 1:58 PM and 2:00 PM, also show high sales, indicating that the restaurant continues to perform well into the early afternoon.
 
-## Strategic Recommendations:
+### Strategic Recommendations:
 
-# Lunch Promotions:
+#### Lunch Promotions:
 
 Given the high sales during lunchtime, introducing special lunch menus, discounts, or combo deals could further boost sales during these peak hours.
 
 Promoting these offers through social media, email marketing, and in store signage can attract more customers during the lunch period.
 
-# Optimising Staffing:
+#### Optimising Staffing:
 
 Ensuring adequate staffing levels during peak lunch hours can help manage the increased customer traffic efficiently. Providing excellent service during these times can enhance the dining experience and encourage repeat visits.
 
-# Lunch time Marketing:
+#### Lunch time Marketing:
 
 Targeting marketing efforts around the midday hours can be highly effective. Utilising online platforms to advertise lunchtime specials or partnering with nearby offices for corporate lunch deals can drive more business.
 
@@ -246,15 +246,15 @@ _Table of the average value of an order for each month_
 
 To analyse the average value of orders over different months, an SQL query was executed to extract the month from order dates and calculate the average order price, rounded to two decimal places. The results provide a clear view of the average order values for January, February, and March.
 
-# Consistency in Average Order Value:
+#### Consistency in Average Order Value:
 
 The average order value across January, February, and March is remarkably consistent, with values hovering around $13. This indicates stable customer spending behavior during these months.
 
-# Slight Increase in February:
+#### Slight Increase in February:
 
 February has the highest average order value at $13.19, slightly higher than March ($13.18) and January ($13.11). The minor increase in February could be influenced by specific events or promotions, such as Valentine's Day, which might encourage customers to spend a little more per order.
 
-# Steady Performance in Early Months:
+#### Steady Performance in Early Months:
 
 The slight variations in average order value suggest that the restaurant maintains a steady performance in the early months of the year. This stability is crucial for financial forecasting and planning.
 
@@ -279,15 +279,15 @@ _Table of how often customers place orders each month_
 
 To analyze how often customers place orders each month, an SQL query was executed to count the number of orders per month by extracting the month from the order date and grouping the data accordingly. The results highlight the frequency of orders placed in January, February, and March.
 
-# High Order Frequency in March:
+#### High Order Frequency in March:
 
 March recorded the highest number of orders with 4,142. This peak in orders could be influenced by seasonal factors, promotions, or specific events that drive more customers to the restaurant.
 
-# Steady Demand in January:
+#### Steady Demand in January:
 
 January saw a slightly lower number of orders at 4,104, indicating a strong start to the year. This could be due to New Year celebrations or post-holiday dining out.
 
-# Lower, Yet Significant, Orders in February:
+#### Lower, Yet Significant, Orders in February:
 
 February had the lowest order count among the three months with 3,851 orders. Despite being the shortest month, the order volume remains substantial, reflecting a consistent customer base.
 
@@ -320,13 +320,13 @@ _Table of top 10 best-selling menu items_
 
 The following analysis presents the top 10 best-selling menu items at the restaurant, categorised by their respective cuisine type. The data was obtained using a SQL query that joins the order_details and menu_items tables, groups the results by item name and category, and orders them by the number of purchases in descending order.
 
-## American Cuisine Dominates:
+#### American Cuisine Dominates:
 
 The top-selling item is the Hamburger, with 622 purchases.
 American cuisine has four items in the top 10: Hamburger, Cheeseburger, French Fries, and Mac & Cheese.
 The combined purchases for American items total 2,239, indicating strong customer preference for American dishes.
 
-## Asian Cuisine Popularity:
+#### Asian Cuisine Popularity:
 
 Edamame and Korean Beef Bowl are the second and third best-selling items, with 620 and 588 purchases, respectively.
 Tofu Pad Thai also makes the list, bringing the total purchases for Asian cuisine items to 1,770.
@@ -374,7 +374,7 @@ _Table of the most popular item of each month_
 
 The following analysis presents the most popular menu items for the first three months at the restaurant, identified using a SQL query that calculates monthly purchases and ranks the items by the number of purchases in descending order.
 
-## Findings:
+#### Findings:
 
 January:
 Edamame Dominance: Edamame was the most popular item with 235 purchases. This indicates a strong preference for this Asian Appetiser among customers at the start of the year.
