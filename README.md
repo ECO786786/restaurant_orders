@@ -68,7 +68,7 @@ _Table of least ordered items_
 
 _Table of most ordered items_
 
-The following analysis presents the least and most ordered items by category,identified using a SQL query that joins the order_details and menu_items tables, groups the results by item name and category, and orders them by the number of purchases in descending order and asending order with a limit of one.
+The following analysis presents the least and most ordered items by category, identified using a SQL query that joins the order_details and menu_items tables, groups the results by item name and category, and orders them by the number of purchases in descending order and ascending order with a limit of one.
 
 The most ordered item falls under the American category, suggesting that American cuisine is particularly popular among the restaurant's customers. This might be influenced by the local demographic's taste preferences or the restaurant's reputation for its American dishes.
 
@@ -96,9 +96,9 @@ LIMIT 5;
 
 _Table of top 5 highest spending orders_
 
-The following analysis presents orders generated the most revenue, an SQL query was executed to aggregate the total spending per order. The query grouped the data by order ID and summed the prices of items in each order, ordering the results by the total spend in descending order. From the results, we find that orders 440, 2075, 1957, 330, and 2675 are the highest paying orders.
+The following analysis presents orders generated the most revenue, an SQL query was executed to aggregate the total spending per order. The query grouped the data by order_id and summed the prices of items in each order, ordering the results by the total_spend in descending order. From the results, we find that orders 440, 2075, 1957, 330, and 2675 are the highest paying orders.
 
-These top 5 orders represent the highest revenue generating transactions for the restaurant. Each order has a total spend close to $190 or more, indicating that they likely involved large parties or customers purchasing multiple high priced items.
+These top 5 orders represent the highest revenue generating transactions for the restaurant. Each order has a total spend close to $190 or more, indicating that they likely involved large parties or customers purchasing multiple high-priced items.
 
 ### 3. View the details of the highest spend order. Which specific items were purchased?
 
@@ -124,16 +124,17 @@ To gain a deeper understanding of the highest spending order, identified previou
 
 #### Dominance of Italian Cuisine:
 
-The order included a significant number of Italian items (8), indicating a strong preference for Italian cuisine in this particular high value order. This could suggest that the Italian menu items are either well loved by customers or are perceived as special items worth purchasing in bulk.
+The order included a significant number of Italian items (8), indicating a strong preference for Italian cuisine in this high value order. This could suggest that the Italian menu items are either well loved by customers or are perceived as special items worth purchasing in bulk.
 
 #### Diverse Cuisine Preferences:
 
 Besides Italian, the order also included items from American, Asian, and Mexican categories (2 items each). This indicates a preference for a diverse culinary experience, perhaps catering to a group with varied tastes.
+
 Menu Insights:
 
 The high quantity of Italian items ordered can provide insight into popular dishes within this category. It could be beneficial to identify which specific Italian dishes were ordered and promote them as part of special offers or highlight them on the menu.
 
-#### Customer Behavior:
+#### Customer Behaviour:
 
 The diversity in the order suggests that customers appreciate variety. Offering combo deals that include items from multiple categories or themed multi-cuisine dining experiences could appeal to similar high-spending customers.
 
@@ -202,6 +203,7 @@ To understand the times of day with the highest sales, an SQL query was executed
 
 The highest sales are observed around lunchtime, specifically between 11:49 AM and 2:50 PM. This period shows significant sales activity, indicating that lunch is a crucial time for the restaurant's revenue.
 The top time slot, 13:13:33 (1:13 PM), generated the highest sales of $229.05.
+
 Consistent Midday Performance:
 
 Several other time slots around midday, such as 12:07:16 (12:07 PM), 12:24:36 (12:24 PM), and 12:16:34 (12:16 PM), also feature prominently. This suggests a consistent pattern of high sales during the lunch rush.
@@ -248,7 +250,7 @@ To analyse the average value of orders over different months, an SQL query was e
 
 #### Consistency in Average Order Value:
 
-The average order value across January, February, and March is remarkably consistent, with values hovering around $13. This indicates stable customer spending behavior during these months.
+The average order value across January, February, and March is remarkably consistent, with values hovering around $13. This indicates stable customer spending behaviour during these months.
 
 #### Slight Increase in February:
 
@@ -277,7 +279,7 @@ ORDER BY how_many_orders DESC;
 
 _Table of how often customers place orders each month_
 
-To analyze how often customers place orders each month, an SQL query was executed to count the number of orders per month by extracting the month from the order date and grouping the data accordingly. The results highlight the frequency of orders placed in January, February, and March.
+To analyse how often customers place orders each month, an SQL query was executed to count the number of orders per month by extracting the month from the order date and grouping the data accordingly. The results highlight the frequency of orders placed in January, February, and March.
 
 #### High Order Frequency in March:
 
@@ -323,14 +325,12 @@ The following analysis presents the top 10 best-selling menu items at the restau
 #### American Cuisine Dominates:
 
 The top-selling item is the Hamburger, with 622 purchases.
-American cuisine has four items in the top 10: Hamburger, Cheeseburger, French Fries, and Mac & Cheese.
-The combined purchases for American items total 2,239, indicating strong customer preference for American dishes.
+American cuisine has four items in the top 10: Hamburger, Cheeseburger, French Fries, and Mac & Cheese. The combined purchases for American items total 2,239, indicating strong customer preference for American dishes.
 
 #### Asian Cuisine Popularity:
 
 Edamame and Korean Beef Bowl are the second and third best-selling items, with 620 and 588 purchases, respectively.
-Tofu Pad Thai also makes the list, bringing the total purchases for Asian cuisine items to 1,770.
-This highlights a significant interest in Asian cuisine among customers.
+Tofu Pad Thai also makes the list, bringing the total purchases for Asian cuisine items to 1,770. This highlights a significant interest in Asian cuisine among customers.
 
 Overall, the data shows a strong preference for American and Asian cuisines among customers, with Mexican and Italian dishes also being popular choices. The variety in the top-selling items suggests a broad appeal across different types of cuisine.
 
